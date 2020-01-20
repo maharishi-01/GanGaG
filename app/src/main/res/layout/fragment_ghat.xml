@@ -5,15 +5,9 @@
     android:layout_height="match_parent"
     tools:context=".GhatFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/showGhats"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:textColor="@android:color/white"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:text="Feed Fragment"
-        android:background="#BF0CB9"/>
+        android:layout_height="match_parent" />
 </LinearLayout>
