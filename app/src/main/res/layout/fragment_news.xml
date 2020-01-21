@@ -6,15 +6,8 @@
     android:background="#ff6767"
     tools:context=".NewsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/showNews"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:textSize="20sp"
-        android:textColor="@android:color/white"
-        android:textStyle="bold"
-        android:text="News Fragment" />
-w
+        android:layout_height="match_parent" />
 </FrameLayout>
