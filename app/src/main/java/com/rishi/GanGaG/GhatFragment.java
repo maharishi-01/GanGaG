@@ -68,10 +68,10 @@ DatabaseReference ghatRef;
             protected void onBindViewHolder(@NonNull showAllGhats holder, int position, @NonNull GhatsList model)
             {
 
-                holder.ghatName.setText(model.name);
-                holder.ghatLocation.setText(model.location);
-                holder.ghatSpecific.setText(model.specific);
-                holder.ghatAbout.setText(model.about);
+                holder.ghatName.setText(model.Name);
+                holder.ghatLocation.setText(model.Location);
+               /*holder.ghatSpecific.setText(model.Specific);
+                holder.ghatAbout.setText(model.About);*/
             }
 
             @NonNull

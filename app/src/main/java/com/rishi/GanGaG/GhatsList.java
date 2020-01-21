@@ -1,49 +1,57 @@
 package com.rishi.GanGaG;
 
 public class GhatsList {
-    String name,location,about,specific;
+    String Name,Location,About,Specific,Time;
     public GhatsList()
     {
 
     }
 
+    public GhatsList(String name, String location, String about, String specific,String time) {
+        Name = name;
+        Location = location;
+        About = about;
+        Specific = specific;
+        Time=time;
+    }
 
-    public GhatsList(String name, String location, String about, String specific) {
-        this.name = name;
-        this.location = location;
-        this.about = about;
-        this.specific = specific;
+    public String getTime() {
+        return Time;
+    }
+
+    public void setTime(String time) {
+        Time = time;
     }
 
     public String getName() {
-        return name;
+        return Name;
     }
 
     public void setName(String name) {
-        this.name = name;
+        Name = name;
     }
 
     public String getLocation() {
-        return location;
+        return Location;
     }
 
     public void setLocation(String location) {
-        this.location = location;
+        Location = location;
     }
 
     public String getAbout() {
-        return about;
+        return About;
     }
 
     public void setAbout(String about) {
-        this.about = about;
+        About = about;
     }
 
     public String getSpecific() {
-        return specific;
+        return Specific;
     }
 
     public void setSpecific(String specific) {
-        this.specific = specific;
+        Specific = specific;
     }
 }
