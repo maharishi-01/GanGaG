@@ -1,5 +1,6 @@
 package com.rishi.GanGaG;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -79,7 +81,15 @@ DatabaseReference ghatRef;
             public showAllGhats onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
 
                 View view=LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.ghats,viewGroup,false) ;
-                showAllGhats allGhats=new showAllGhats(view);
+                final showAllGhats allGhats=new showAllGhats(view);
+
+                allGhats.relativeLayout.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                       getContext().startActivity(new Intent(getContext(),Details.class));
+                    }
+                });
+
                 return allGhats;
             }
         };
@@ -94,6 +104,7 @@ DatabaseReference ghatRef;
     {
 
         TextView ghatName,ghatLocation,ghatSpecific,ghatAbout;
+        RelativeLayout relativeLayout;
         public showAllGhats(@NonNull View itemView) {
             super(itemView);
 
@@ -101,6 +112,7 @@ DatabaseReference ghatRef;
             ghatLocation=itemView.findViewById(R.id.ghatLocation);
             ghatSpecific=itemView.findViewById(R.id.ghatSpecific);
             ghatAbout=itemView.findViewById(R.id.ghatAbout);
+            relativeLayout=itemView.findViewById(R.id.list_item_view);
         }
     }
 
