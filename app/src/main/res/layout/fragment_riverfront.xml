@@ -9,8 +9,8 @@
         android:id="@+id/ghatSearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:queryHint="search for riverfront"
-        android:layout_marginBottom="10dp"/>
+        android:queryHint="search for riverfront"/>
+
 
     <ImageView
         android:id="@+id/imageView"
@@ -19,9 +19,15 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:src="@drawable/riverfront" />
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progress_bar"
+        android:layout_centerInParent="true"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_below="@+id/imageView"
+        android:visibility="gone"
         android:id="@+id/showRiverFront"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

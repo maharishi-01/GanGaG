@@ -96,7 +96,7 @@
                     android:layout_marginTop="16dp"
                     android:textStyle="bold"
                     android:textSize="18dp"
-                    android:text="Good For"/>
+                    android:text="About"/>
                 <TextView
                     android:id="@+id/about"
                     android:layout_width="match_parent"

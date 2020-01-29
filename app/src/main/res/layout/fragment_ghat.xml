@@ -6,8 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".GhatFragment">
 
-
+    <SearchView
+        android:id="@+id/ghatSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:queryHint="search for riverfront"/>
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progress_bar"
+        android:layout_centerInParent="true"/>
     <ImageView
+        android:layout_below="@+id/ghatSearch"
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,6 +25,7 @@
         android:src="@drawable/ghat" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:visibility="gone"
         android:layout_below="@+id/imageView"
         android:id="@+id/showGhats"
         android:layout_width="match_parent"

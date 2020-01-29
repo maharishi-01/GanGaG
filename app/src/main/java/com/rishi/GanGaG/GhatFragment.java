@@ -11,8 +11,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -31,6 +33,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class GhatFragment extends Fragment {
 RecyclerView recyclerView;
 DatabaseReference ghatRef;
+ProgressBar progressBar;
 
     public GhatFragment() {
         // Required empty public constructor
@@ -54,6 +57,7 @@ DatabaseReference ghatRef;
         View root= inflater.inflate(R.layout.fragment_ghat, container, false);
         ghatRef=FirebaseDatabase.getInstance().getReference().child("Gahts");
         recyclerView=root.findViewById(R.id.showGhats);
+        progressBar=root.findViewById(R.id.progress_bar);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
         return root;
     }
@@ -66,14 +70,23 @@ DatabaseReference ghatRef;
                 .build();
 
         FirebaseRecyclerAdapter<GhatsList,showAllGhats> adapter=new FirebaseRecyclerAdapter<GhatsList, showAllGhats>(options) {
+
             @Override
             protected void onBindViewHolder(@NonNull showAllGhats holder, int position, @NonNull GhatsList model)
             {
 
                 holder.ghatName.setText(model.Name);
                 holder.ghatLocation.setText(model.Location);
-               /*holder.ghatSpecific.setText(model.Specific);
-                holder.ghatAbout.setText(model.About);*/
+                holder.ghatSpecific.setText(model.Specific);
+                holder.ghatAbout.setText(model.About);
+            }
+
+            @Override
+            public void onDataChanged() {
+                if (progressBar != null) {
+                    progressBar.setVisibility(View.GONE);
+                    recyclerView.setVisibility(View.VISIBLE);
+                }
             }
 
             @NonNull
@@ -86,7 +99,15 @@ DatabaseReference ghatRef;
                 allGhats.relativeLayout.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                       getContext().startActivity(new Intent(getContext(),Details.class));
+                        String sLoction;
+                        sLoction=allGhats.ghatLocation.getText().toString();
+                        Intent intent=new Intent(getContext(),Details.class);
+                        intent.putExtra("sLocation",sLoction);
+                        intent.putExtra("sName",allGhats.ghatName.getText().toString());
+                        intent.putExtra("sSpecific",allGhats.ghatSpecific.getText().toString());
+                        intent.putExtra("sAbout",allGhats.ghatAbout.getText().toString());
+                        //Toast.makeText(getContext(),sLoction,Toast.LENGTH_SHORT).show();
+                       getContext().startActivity(intent);
                     }
                 });
 
