@@ -1,5 +1,6 @@
 package com.rishi.GanGaG;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -10,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -29,6 +32,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class RiverfrontFragment extends Fragment {
     RecyclerView recyclerView;
     DatabaseReference ghatRef;
+    ProgressBar progressBar;
 
 
     public RiverfrontFragment() {
@@ -53,6 +57,7 @@ public class RiverfrontFragment extends Fragment {
         View root= inflater.inflate(R.layout.fragment_riverfront, container, false);
         ghatRef= FirebaseDatabase.getInstance().getReference().child("Riverfronts");
         recyclerView=root.findViewById(R.id.showRiverFront);
+        progressBar=root.findViewById(R.id.progress_bar);
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
         return root;
     }
@@ -64,21 +69,49 @@ public class RiverfrontFragment extends Fragment {
                 .setQuery(ghatRef,GhatsList.class)
                 .build();
 
-        FirebaseRecyclerAdapter<GhatsList, GhatFragment.showAllGhats> adapter=new FirebaseRecyclerAdapter<GhatsList, GhatFragment.showAllGhats>(options) {
+        FirebaseRecyclerAdapter<GhatsList, RiverfrontFragment.showAllGhats> adapter=new FirebaseRecyclerAdapter<GhatsList, RiverfrontFragment.showAllGhats>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull GhatFragment.showAllGhats holder, int position, @NonNull GhatsList model)
+            protected void onBindViewHolder(@NonNull RiverfrontFragment.showAllGhats holder, int position, @NonNull GhatsList model)
             {
 
                 holder.ghatName.setText(model.Name);
                 holder.ghatLocation.setText(model.Location);
+                holder.ghatSpecific.setText(model.Specific);
+                holder.ghatAbout.setText(model.About);
+            }
+
+
+            @Override
+            public void onDataChanged() {
+                if (progressBar != null) {
+                    progressBar.setVisibility(View.GONE);
+                    recyclerView.setVisibility(View.VISIBLE);
+                }
             }
 
             @NonNull
             @Override
-            public GhatFragment.showAllGhats onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+            public RiverfrontFragment.showAllGhats onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
 
                 View view=LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.ghats,viewGroup,false) ;
-                GhatFragment.showAllGhats allGhats=new GhatFragment.showAllGhats(view);
+                final RiverfrontFragment.showAllGhats allGhats=new RiverfrontFragment.showAllGhats(view);
+
+
+                allGhats.relativeLayout.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String sLoction;
+                        sLoction=allGhats.ghatLocation.getText().toString();
+                        Intent intent=new Intent(getContext(),Details.class);
+                        intent.putExtra("sLocation",sLoction);
+                        intent.putExtra("sName",allGhats.ghatName.getText().toString());
+                        intent.putExtra("sSpecific",allGhats.ghatSpecific.getText().toString());
+                        intent.putExtra("sAbout",allGhats.ghatAbout.getText().toString());
+                        //Toast.makeText(getContext(),sLoction,Toast.LENGTH_SHORT).show();
+                        getContext().startActivity(intent);
+                    }
+                });
+
                 return allGhats;
             }
         };
@@ -93,6 +126,7 @@ public class RiverfrontFragment extends Fragment {
     {
 
         TextView ghatName,ghatLocation,ghatSpecific,ghatAbout;
+        RelativeLayout relativeLayout;
         public showAllGhats(@NonNull View itemView) {
             super(itemView);
 
@@ -100,6 +134,7 @@ public class RiverfrontFragment extends Fragment {
             ghatLocation=itemView.findViewById(R.id.ghatLocation);
             ghatSpecific=itemView.findViewById(R.id.ghatSpecific);
             ghatAbout=itemView.findViewById(R.id.ghatAbout);
+            relativeLayout=itemView.findViewById(R.id.list_item_view);
         }
     }
 
