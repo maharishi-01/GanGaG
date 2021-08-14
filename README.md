@@ -1,5 +1,5 @@
 # GanGaG
-Know your Ghats mobile app facilitating general public use information on Ghats and crematoria existing along Ganga and its tributarie .
+Know your Ghats mobile app facilitating general public use and get information about Ghats and crematoria existing along Ganga and its tributaries.
 
 #### Screenshots:-
 
