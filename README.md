@@ -2,10 +2,6 @@
 Know your Ghats mobile app facilitating general public use and get information about Ghats and crematoria existing along Ganga and its tributaries.
 
 #### Screenshots:-
-
-[![list.jpg](https://i.postimg.cc/XqdM5fG1/list.jpg)](https://postimg.cc/4HfFkh1p)
-[![riverfrontlist.jpg](https://i.postimg.cc/hGjHsWQd/riverfrontlist.jpg)](https://postimg.cc/nXyRVWkF)
-[![cremat.jpg](https://i.postimg.cc/L6xDTqtx/cremat.jpg)](https://postimg.cc/YhmQ2CyF)
-[![ghats.jpg](https://i.postimg.cc/tgZB7XV2/ghats.jpg)](https://postimg.cc/7C43Wr92)
-[![details.jpg](https://i.postimg.cc/jd36fpT9/details.jpg)](https://postimg.cc/mtMFf6tN)
-[![image-2021-08-14-123148.png](https://i.postimg.cc/t4hhcYW0/image-2021-08-14-123148.png)](https://postimg.cc/qNvhhB1Q)
+| Home page      | Riverfront List page    | Crematoria List page  | Ghats List page  | Details page  | Details page 2      |
+|------------|-------------|------------|-------------|------------|-------------|
+|<img src="https://user-images.githubusercontent.com/42871956/131247697-229d985c-72df-43da-9104-8ff81864bcea.jpg" width="250">|<img src="https://user-images.githubusercontent.com/42871956/131247727-819b9b59-2aad-4c09-965c-cbfb05ff96a0.jpeg" width="250">|<img src="https://user-images.githubusercontent.com/42871956/131247732-ade7f601-8a32-40e6-b695-01e433caade2.jpeg" width="250">|<img src="https://user-images.githubusercontent.com/42871956/131247735-2726012b-a5c1-450c-a8ef-bad027842e6e.jpeg" width="250">|<img src="https://user-images.githubusercontent.com/42871956/131247739-e617d6a1-60e8-44b5-a187-d3fa3d688d09.jpeg" width="250">|<img src="https://user-images.githubusercontent.com/42871956/131247742-8dde585a-7f75-449f-99a1-5f2f2df0be82.png" width="250">|
